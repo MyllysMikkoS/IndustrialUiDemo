@@ -1,0 +1,17 @@
+:host {
+  $borderSize: 5px;
+  $viewWidth: calc(100vw - 300px - #{$borderSize});
+  $viewHeight: calc(100vh - #{$borderSize * 2});
+
+  .page-container {
+    position: fixed;
+    top: 0;
+    left: 300px;
+    width: $viewWidth;
+    height: $viewHeight;
+
+    border-top: $borderSize solid black;
+    border-right: $borderSize solid black;
+    border-bottom: $borderSize solid black;
+  }
+}

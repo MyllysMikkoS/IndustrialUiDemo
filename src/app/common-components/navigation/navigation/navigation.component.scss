@@ -1,0 +1,54 @@
+@use '../../../../colors' as *;
+
+:host {
+  $borderSize: 5px;
+  $paddingSize: 20px;
+  $viewWidth: calc(300px - #{$borderSize * 2} - #{$paddingSize * 2});
+  $viewHeight: calc(100vh - #{$borderSize * 2} - #{$paddingSize * 2});
+
+  .nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $viewWidth;
+    height: $viewHeight;
+    padding: $paddingSize;
+    background-color: $color-light-gray;
+    border: $borderSize solid black;
+  }
+
+  .nav-app-title {
+    width: 100%;
+    height: calc(#{$viewWidth} - #{$paddingSize} - #{$borderSize});
+    padding-bottom: $paddingSize;
+    border-bottom: $borderSize solid black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 40px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  ul {
+    padding-top: $paddingSize;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+
+    li {
+      margin-top: 10px;
+
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $color-light-blue;
+      }
+    }
+  }
+}

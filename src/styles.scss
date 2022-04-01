@@ -1,0 +1,14 @@
+@use 'colors' as *;
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url(./assets/fonts/Roboto/Roboto-Regular.ttf) format('truetype');
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: $color-gray;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  color: $color-light-blue;
+}
