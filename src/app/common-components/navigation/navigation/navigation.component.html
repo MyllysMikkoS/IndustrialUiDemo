@@ -4,7 +4,7 @@
     <p>{{appVersion}}</p>
   </div>
   <ul>
-    <li><a routerLink="main">Main</a></li>
-    <li><a routerLink="analytics">Analytics</a></li>
+    <li><a [ngClass]="selectedNavigation === navSelection.Main ? 'selected-link' : 'unselected-link'" routerLink="main">Main</a></li>
+    <li><a [ngClass]="selectedNavigation === navSelection.Analytics ? 'selected-link' : 'unselected-link'" routerLink="analytics">Analytics</a></li>
   </ul>
 </div>

@@ -1,7 +1,7 @@
 @use '../../../../colors' as *;
+@use '../../../../common' as *;
 
 :host {
-  $borderSize: 5px;
   $paddingSize: 20px;
   $viewWidth: calc(300px - #{$borderSize * 2} - #{$paddingSize * 2});
   $viewHeight: calc(100vh - #{$borderSize * 2} - #{$paddingSize * 2});
@@ -14,19 +14,20 @@
     height: $viewHeight;
     padding: $paddingSize;
     background-color: $color-light-gray;
-    border: $borderSize solid black;
+    border: $borderSize solid $color-borders;
   }
 
   .nav-app-title {
     width: 100%;
     height: calc(#{$viewWidth} - #{$paddingSize} - #{$borderSize});
     padding-bottom: $paddingSize;
-    border-bottom: $borderSize solid black;
+    border-bottom: $borderSize solid $color-borders;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-transform: none;
 
     font-size: 40px;
 
@@ -45,10 +46,17 @@
       margin-top: 10px;
 
       a {
+        font-size: 20px;
         text-decoration: none;
-        text-transform: uppercase;
-        color: $color-light-blue;
       }
     }
+  }
+
+  .selected-link {
+    color: $color-gray;
+  }
+
+  .unselected-link {
+    color: $color-light-blue;
   }
 }

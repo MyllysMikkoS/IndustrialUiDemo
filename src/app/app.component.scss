@@ -1,5 +1,8 @@
+@use '../common' as *;
+@use '../colors' as *;
+
+
 :host {
-  $borderSize: 5px;
   $viewWidth: calc(100vw - 300px - #{$borderSize});
   $viewHeight: calc(100vh - #{$borderSize * 2});
 
@@ -10,8 +13,8 @@
     width: $viewWidth;
     height: $viewHeight;
 
-    border-top: $borderSize solid black;
-    border-right: $borderSize solid black;
-    border-bottom: $borderSize solid black;
+    border-top: $borderSize solid $color-borders;
+    border-right: $borderSize solid $color-borders;
+    border-bottom: $borderSize solid $color-borders;
   }
 }
