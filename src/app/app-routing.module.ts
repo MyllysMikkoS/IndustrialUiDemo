@@ -1,5 +1,5 @@
-import { AnalyticsPageComponent } from './analytics-page/analytics-page/analytics-page.component';
-import { MainPageComponent } from './main-page/main-page/main-page.component';
+import { AnalyticsPageComponent } from './analytics-page/analytics-page.component';
+import { MainPageComponent } from './main-page/main-page.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 

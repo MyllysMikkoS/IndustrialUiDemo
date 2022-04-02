@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainPageComponent } from './main-page/main-page/main-page.component';
-import { AnalyticsPageComponent } from './analytics-page/analytics-page/analytics-page.component';
-import { NavigationComponent } from './common-components/navigation/navigation/navigation.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { AnalyticsPageComponent } from './analytics-page/analytics-page.component';
+import { NavigationComponent } from './common-components/navigation/navigation.component';
+import { ProgressBarComponent } from './common-components/progress-bar/progress-bar.component';
+import { StepViewComponent } from './main-page/step-view/step-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     AnalyticsPageComponent,
-    NavigationComponent
+    NavigationComponent,
+    ProgressBarComponent,
+    StepViewComponent
   ],
   imports: [
     BrowserModule,

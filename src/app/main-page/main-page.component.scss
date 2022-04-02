@@ -1,5 +1,5 @@
-@use '../../../common' as *;
-@use '../../../colors' as *;
+@use '../../common' as *;
+@use '../../colors' as *;
 
 :host {
 
@@ -50,6 +50,38 @@
       .process-flow {
         grid-column: col2-start / col2-end;
         grid-row: row1-start / row3-start;
+
+        display: flex;
+        flex-direction: column;
+
+        .process-steps {
+          display: flex;
+          flex-direction: row;
+          flex-grow: 1;
+          justify-content: space-around;
+          align-items: center;
+
+          .arrow-empty {
+            width: 75px;
+            height: 75px;
+            background-image: url('../../assets/images/arrow-empty.png');
+            background-size: cover;
+          }
+
+          .arrow-green {
+            width: 75px;
+            height: 75px;
+            background-image: url('../../assets/images/arrow-green.png');
+            background-size: cover;
+          }
+        }
+
+        .overall-progress {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          justify-content: center;
+        }
       }
 
       .machine-controls {
@@ -83,6 +115,11 @@
 
           .control-button:active {
             background-color: $color-light-gray;
+          }
+
+          .button-disabled, .button-disabled:active {
+            color: $color-gray;
+            background-color: $color-borders;
           }
         }
       }

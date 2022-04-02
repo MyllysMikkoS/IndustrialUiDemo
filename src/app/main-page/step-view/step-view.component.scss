@@ -1,0 +1,39 @@
+@use '../../../colors' as *;
+@use '../../../common' as *;
+
+:host {
+  .process-step {
+    width: 175px;
+    height: 250px;
+    padding: 10px;
+
+    border: $borderSize solid $color-borders;
+
+    .widget-header {
+      padding-bottom: 5px;
+    }
+
+    .step-info {
+      border-top: $borderSize solid $color-borders;
+      border-bottom: $borderSize solid $color-borders;
+
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      .label-value-group {
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        .label {
+          padding-bottom: 5px;
+        }
+      }
+    }
+
+    .progress {
+      width: 100%;
+      padding-top: 15px;
+      text-align: center;
+    }
+  }
+}

@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
+  get currentStepIndex(): number {
+    return 1;
+  }
+
+  get currentOverallProgress(): number {
+    return 40;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

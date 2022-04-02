@@ -19,14 +19,24 @@
     </div>
     <div class="widget process-flow">
       <div class="widget-header">Process flow</div>
-
+      <div class="process-steps">
+        <app-step-view [stepTitle]="'Step title'" [runTime]="0" [estimatedTime]="0"></app-step-view>
+        <div [ngClass]="currentStepIndex < 1 ? 'arrow-empty' : 'arrow-green'"></div>
+        <app-step-view [stepTitle]="'Step title'" [runTime]="0" [estimatedTime]="0"></app-step-view>
+        <div [ngClass]="currentStepIndex < 2 ? 'arrow-empty' : 'arrow-green'"></div>
+        <app-step-view [stepTitle]="'Step title'" [runTime]="0" [estimatedTime]="0"></app-step-view>
+      </div>
+      <div class="overall-progress">
+        <div class="widget-header">Overall progress</div>
+        <app-progress-bar [progress]="currentOverallProgress" [heightPixels]="50"></app-progress-bar>
+      </div>
     </div>
     <div class="widget machine-controls">
       <div class="widget-header">Machine controls</div>
       <div class="controls-container">
         <div class="control-button">Start</div>
-        <div class="control-button">Stop</div>
-        <div class="control-button">Cancel</div>
+        <div class="control-button" [class.button-disabled]="true">Stop</div>
+        <div class="control-button" [class.button-disabled]="true">Cancel</div>
       </div>
     </div>
   </div>
