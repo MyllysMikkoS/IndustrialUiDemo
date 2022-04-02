@@ -55,6 +55,36 @@
       .machine-controls {
         grid-column: col1-start / col2-end;
         grid-row: row3-start / row3-end;
+
+        display: flex;
+        flex-direction: column;
+
+        .controls-container {
+          margin: $widgetMargin;
+          display: flex;
+          flex-direction: row;
+          flex-grow: 1;
+          justify-content: space-around;
+          align-items: center;
+
+          .control-button {
+            width: 200px;
+            height: 75px;
+            background-color: $color-light-blue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: $color-borders;
+            border: $borderSize solid $color-borders;
+            cursor: pointer;
+            font-size: 2em;
+          }
+
+          .control-button:active {
+            background-color: $color-light-gray;
+          }
+        }
       }
     }
   }
