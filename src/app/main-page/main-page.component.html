@@ -2,29 +2,29 @@
   <div class="main-grid-wrapper">
     <div class="widget machine-status">
       <div class="widget-header">Machine status</div>
-      <div class="machine-status-state">Idle</div>
+      <div class="machine-status-state" [style.color]="isActive ? 'green' : 'yellow'" >{{machineState}}</div>
     </div>
     <div class="widget process-info">
       <div class="widget-header">Process info</div>
       <div class="process-info-data">
         <div class="label-value-group">
           <div class="label">Item name:</div>
-          <div class="value">TestItem1</div>
+          <div class="value">{{itemName}}</div>
         </div>
         <div class="label-value-group">
           <div class="label">Processed quantity:</div>
-          <div class="value">10</div>
+          <div class="value">{{processedQuantity}}</div>
         </div>
       </div>
     </div>
     <div class="widget process-flow">
       <div class="widget-header">Process flow</div>
-      <div class="process-steps">
-        <app-step-view [stepTitle]="'Step title'" [runTime]="0" [estimatedTime]="0"></app-step-view>
+      <div class="process-steps"> <!-- Maybe changed into dynamic ngFor loop in the future -->
+        <app-step-view [stepTitle]="processSteps[0].getName()" [runTime]="processSteps[0].getRuntime()" [estimatedTime]="processSteps[0].getEstimatedTime()"></app-step-view>
         <div [ngClass]="currentStepIndex < 1 ? 'arrow-empty' : 'arrow-green'"></div>
-        <app-step-view [stepTitle]="'Step title'" [runTime]="0" [estimatedTime]="0"></app-step-view>
+        <app-step-view [stepTitle]="processSteps[1].getName()" [runTime]="processSteps[1].getRuntime()" [estimatedTime]="processSteps[1].getEstimatedTime()"></app-step-view>
         <div [ngClass]="currentStepIndex < 2 ? 'arrow-empty' : 'arrow-green'"></div>
-        <app-step-view [stepTitle]="'Step title'" [runTime]="0" [estimatedTime]="0"></app-step-view>
+        <app-step-view [stepTitle]="processSteps[2].getName()" [runTime]="processSteps[2].getRuntime()" [estimatedTime]="processSteps[2].getEstimatedTime()"></app-step-view>
       </div>
       <div class="overall-progress">
         <div class="widget-header">Overall progress</div>
@@ -34,9 +34,9 @@
     <div class="widget machine-controls">
       <div class="widget-header">Machine controls</div>
       <div class="controls-container">
-        <div class="control-button">Start</div>
-        <div class="control-button" [class.button-disabled]="true">Stop</div>
-        <div class="control-button" [class.button-disabled]="true">Cancel</div>
+        <div class="control-button" [class.button-disabled]="startDisabled" (click)="start()">Start</div>
+        <div class="control-button" [class.button-disabled]="stopDisabled" (click)="stop()">Stop</div>
+        <div class="control-button" [class.button-disabled]="cancelDisabled" (click)="cancel()">Cancel</div>
       </div>
     </div>
   </div>
