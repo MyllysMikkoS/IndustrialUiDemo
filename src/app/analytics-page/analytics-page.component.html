@@ -4,46 +4,46 @@
       <div class="widget-header">Production data</div>
       <div class="label-value-group">
         <div class="label">Overall active processing time:</div>
-        <div class="value">10 s</div>
+        <div class="value">{{overallActiveProcessingTime | number:'1.2'}} s</div>
       </div>
       <div class="label-value-group">
         <div class="label">Overall idle processing time:</div>
-        <div class="value">10 s</div>
+        <div class="value">{{overallIdleProcessingTime | number:'1.2'}} s</div>
       </div>
       <div class="label-value-group">
         <div class="label">Cancelled processes:</div>
-        <div class="value">2</div>
+        <div class="value">{{cancelledProcesses | number:'1.0-0'}}</div>
       </div>
       <div class="label-value-group">
         <div class="label">Average step 1 processing time:</div>
-        <div class="value">10 s</div>
+        <div class="value">{{step1AverageProcessingTime | number:'1.2'}} s</div>
       </div>
       <div class="label-value-group">
         <div class="label">Average step 2 processing time:</div>
-        <div class="value">10 s</div>
+        <div class="value">{{step2AverageProcessingTime | number:'1.2'}} s</div>
       </div>
       <div class="label-value-group">
         <div class="label">Average step 3 processing time:</div>
-        <div class="value">10 s</div>
+        <div class="value">{{step3AverageProcessingTime | number:'1.2'}} s</div>
       </div>
     </div>
     <div class="widget flex-column overall-processing-time">
-      <div class="widget-header">Overall processing</div>
+      <div class="widget-header">Machine activity of all processes</div>
       <div class="graph-container">
-        <app-process-time-chart></app-process-time-chart>
+        <app-process-time-chart [activePercentage]="allProcessesActivityDistribution.percentage1" [idlePercentage]="allProcessesActivityDistribution.percentage2"></app-process-time-chart>
       </div>
     </div>
     <div class="widget flex-column step1-processing-time">
-      <div class="widget-header">Step 1 processing</div>
-      <app-process-time-chart></app-process-time-chart>
+      <div class="widget-header">Machine activity of step 1 processes</div>
+      <app-process-time-chart [activePercentage]="step1ActivityDistribution.percentage1" [idlePercentage]="step1ActivityDistribution.percentage2"></app-process-time-chart>
     </div>
     <div class="widget flex-column step2-processing-time">
-      <div class="widget-header">Step 2 processing</div>
-      <app-process-time-chart></app-process-time-chart>
+      <div class="widget-header">Machine activity of step 2 processes</div>
+      <app-process-time-chart [activePercentage]="step2ActivityDistribution.percentage1" [idlePercentage]="step2ActivityDistribution.percentage2"></app-process-time-chart>
     </div>
     <div class="widget flex-column step3-processing-time">
-      <div class="widget-header">Step 3 processing</div>
-      <app-process-time-chart></app-process-time-chart>
+      <div class="widget-header">Machine activity of step 3 processes</div>
+      <app-process-time-chart [activePercentage]="step3ActivityDistribution.percentage1" [idlePercentage]="step3ActivityDistribution.percentage2"></app-process-time-chart>
     </div>
   </div>
 </div>

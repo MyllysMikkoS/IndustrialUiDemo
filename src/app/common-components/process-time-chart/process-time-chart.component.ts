@@ -18,15 +18,15 @@ import { Component, Input, OnInit } from '@angular/core';
       </div>
     </div>
     <div class="values">
-      <p>80 %</p>
-      <p>20 %</p>
+      <p>{{activePercentage | number:'1.0-0'}} %</p>
+      <p>{{idlePercentage | number:'1.0-0'}} %</p>
     </div>
   </div>
   `
 })
 export class ProcessTimeChartComponent implements OnInit {
-  @Input() activePercentage = 100;
-  @Input() idlePercentage = 20;
+  @Input() activePercentage = 0;
+  @Input() idlePercentage = 0;
 
   get activeBarWidth(): string {
     const clampedPercent = Math.max(Math.min(this.activePercentage, 100), 0);

@@ -39,6 +39,13 @@ export class ProcessStep {
   }
 }
 
+export class AnalyticsData {
+  cancelledProcesses = 0;
+
+  stepActiveProcessingTimes = [0, 0, 0];
+  stepIdleProcessingTimes = [0, 0, 0];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -56,10 +63,13 @@ export class SimulatorService {
 
   // Steps (simulator has hardcoded process steps for now)
   private processSteps: ProcessStep[] = [
-    new ProcessStep(0, 'Starting step', 1),
-    new ProcessStep(1, 'Execution step', 3),
-    new ProcessStep(2, 'Finishing step', 2)
+    new ProcessStep(0, 'Starting step', 5),
+    new ProcessStep(1, 'Execution step', 10),
+    new ProcessStep(2, 'Finishing step', 7)
   ];
+
+  // Analytics data
+  private analyticsData = new AnalyticsData();
 
   constructor() {
     setInterval(() => { this.simulationUpdate(); }, this.simulationTickSeconds * 1000);
@@ -83,6 +93,10 @@ export class SimulatorService {
 
   getCurrentStepIndex(): number {
     return this.currentProcessStepIndex;
+  }
+
+  getAnalyticsData(): AnalyticsData {
+    return this.analyticsData;
   }
 
   start(): void {
@@ -112,6 +126,8 @@ export class SimulatorService {
     this.processSteps.forEach(step => {
       step.setRuntime(0);
     });
+
+    this.analyticsData.cancelledProcesses++;
   }
 
   canStartProcessing(): boolean {
@@ -138,6 +154,9 @@ export class SimulatorService {
       const newRunTime = currentStep.getRuntime() + this.simulationTickSeconds;
       currentStep.setRuntime(newRunTime);
 
+      // Add active time analytics
+      this.analyticsData.stepActiveProcessingTimes[this.currentProcessStepIndex] += this.simulationTickSeconds;
+
       // Advance steps
       if (currentStep.getRuntime() >= currentStep.getEstimatedTime()) {
         // Move to next step
@@ -147,6 +166,11 @@ export class SimulatorService {
           this.processedQuantity++;
           this.cancel();
         }
+      }
+    } else {
+      // Add idle time analytics
+      if (this.currentProcessStepIndex >= 0) {
+        this.analyticsData.stepIdleProcessingTimes[this.currentProcessStepIndex] += this.simulationTickSeconds;
       }
     }
   }
