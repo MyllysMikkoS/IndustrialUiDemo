@@ -1,7 +1,7 @@
 # IndustrialUiDemo
 
-A small and compact UI demo of a generic industrial processing machine.
+A small UI demo of a simple fictional industrial processing machine.
 
-## Development server
+Used Angular 11.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+To try it in a local environment get the project and run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
