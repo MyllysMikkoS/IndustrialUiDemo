@@ -8,6 +8,7 @@ import { AnalyticsPageComponent } from './analytics-page/analytics-page.componen
 import { NavigationComponent } from './common-components/navigation/navigation.component';
 import { ProgressBarComponent } from './common-components/progress-bar/progress-bar.component';
 import { StepViewComponent } from './main-page/step-view/step-view.component';
+import { ProcessTimeChartComponent } from './common-components/process-time-chart/process-time-chart.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StepViewComponent } from './main-page/step-view/step-view.component';
     AnalyticsPageComponent,
     NavigationComponent,
     ProgressBarComponent,
-    StepViewComponent
+    StepViewComponent,
+    ProcessTimeChartComponent
   ],
   imports: [
     BrowserModule,

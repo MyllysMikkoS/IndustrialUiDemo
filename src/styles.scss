@@ -26,6 +26,7 @@ html, body {
   margin: $widgetMargin;
   padding: $widgetMargin;
   border: $borderSize solid $color-borders;
+  background: $color-widget-background;
 }
 
 .widget-header {

@@ -47,6 +47,15 @@
         grid-column: col2-start / col2-end;
         grid-row: row3-start / row3-end;
       }
+
+      .graph-container {
+        flex-grow: 1;
+      }
     }
+  }
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
   }
 }
